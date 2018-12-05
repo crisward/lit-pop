@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popmotion with Lit Mess</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <div class="container">
+  <h2><drag-tag>This is some normal content, but should be able to</drag-tag>
+    <drag-tag><strong>drag this.</strong></drag-tag>
+  </h2>
+</div>
+  
+</body>
+  <script type="text/javascript">
+    // only load polyfills if required
+    function addScript(src){
+      var js = document.createElement("script");
+      js.type = "text/javascript";
+      js.src = src; 
+      head.appendChild(js);
+    }
+    var head = document.querySelector('head');
+    if(window.customElements){
+      addScript("/build/app.js");
+    }else{
+      addScript("https://unpkg.com/@webcomponents/webcomponentsjs@2.2.1/webcomponents-loader.js");
+      addScript("https://unpkg.com/@webcomponents/webcomponentsjs@2.2.1/custom-elements-es5-adapter.js");
+      addScript("https://cdn.jsdelivr.net/npm/proxy-polyfill@0.3.0/proxy.min.js");
+      window.addEventListener("load",function(){
+        addScript("/build/app.es5.js");
+      })
+    }
+  </script>
+</html>
