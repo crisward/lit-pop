@@ -5,8 +5,8 @@ Quick mess using lit-html with Popmotion - https://popmotion.io/
 ## Using
 
 ```bash
-git clone ...
-npm cd lit-pop
+git clone git@github.com:crisward/lit-pop.git
+cd lit-pop
 npm install
 npm run build
 npm start
